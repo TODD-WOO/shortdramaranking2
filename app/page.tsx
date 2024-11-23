@@ -3,6 +3,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import styles from './page.module.css';
+import Image from 'next/image';
 
 interface Video {
   id: string;
@@ -54,9 +55,12 @@ export default function Home() {
       <ol className={styles.videoList}>
         {videos.map((video) => (
           <li key={video.id} className={styles.videoItem}>
-            <img 
+            <Image 
               src={video.snippet.thumbnails.medium.url} 
               alt={video.snippet.title}
+              width={320}
+              height={180}
+              priority={true}
             />
             <div className={styles.videoInfo}>
               <a 
