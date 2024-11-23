@@ -20,6 +20,7 @@ export async function GET() {
     const data = await response.json();
     return NextResponse.json(data);
   } catch (error) {
+    console.error('YouTube API 错误:', error);
     return NextResponse.json({ error: '获取视频数据失败' }, { status: 500 });
   }
 } 
